@@ -153,7 +153,7 @@ Each line prints the value shown in the comment:
 docker ps --format '{{.Names}}' | sort                                     # grafana, node-exporter, prometheus, traefik, whoami
 curl -s 127.0.0.1:8080/api/http/routers | grep -o 'whoami@docker'          # whoami@docker
 curl -si -H 'Host: whoami.localhost' http://127.0.0.1:8000/ | head -1      # HTTP/1.1 200 OK
-curl -s localhost:9100/metrics | grep -c '^node_'                          # 883 matching lines
+curl -s localhost:9100/metrics | grep -c '^node_'                          # 800+ matching lines (varies with host state; measured 810-883)
 curl -s http://127.0.0.1:9090/api/v1/targets | grep -o '"health":"up"'     # "health":"up"
 curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:3002/            # 302 (redirect to /login)
 ```
